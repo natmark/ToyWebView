@@ -2,33 +2,33 @@ import XCTest
 @testable import ToyWebView
 
 final class HTMLParserTests: XCTestCase {
-    func testParseAttribute() {
-        typealias TestCase = (token: String, expected: Attribute, line: Int)
+    func testParseAttribute() throws {
+        typealias TestCase = (input: String, expected: Attribute, line: Int)
 
         let testCases: [TestCase] = [
             (
-                token: "test=\"foobar\"",
+                input: "test=\"foobar\"",
                 expected: .init(key: "test", value: "foobar"),
                 line: #line
             ),
             (
-                token: "test = \"foobar\"",
+                input: "test = \"foobar\"",
                 expected: .init(key: "test", value: "foobar"),
                 line: #line
             ),
         ]
 
         for testCase in testCases {
-            XCTAssertEqual(try? HTMLParser.parseAttribute(testCase.token), testCase.expected, String(testCase.line))
+            XCTAssertEqual(try HTMLParser.parseAttribute(testCase.input), testCase.expected, String(testCase.line))
         }
     }
 
-    func testParseAttributes() {
-        typealias TestCase = (token: String, expected: [Attribute], line: Int)
+    func testParseAttributes() throws {
+        typealias TestCase = (input: String, expected: [Attribute], line: Int)
 
         let testCases: [TestCase] = [
             (
-                token: "test=\"foobar\" abc=\"def\"",
+                input: "test=\"foobar\" abc=\"def\"",
                 expected: [
                     .init(key: "test", value: "foobar"),
                     .init(key: "abc", value: "def"),
@@ -36,14 +36,38 @@ final class HTMLParserTests: XCTestCase {
                 line: #line
             ),
             (
-                token: "",
+                input: "",
                 expected: [],
                 line: #line
             ),
         ]
 
         for testCase in testCases {
-            XCTAssertEqual(try? HTMLParser.parseAttributes(testCase.token), testCase.expected, String(testCase.line))
+            XCTAssertEqual(try HTMLParser.parseAttributes(testCase.input), testCase.expected, String(testCase.line))
+        }
+    }
+
+    func testParseOpenTag() throws {
+        try XCTContext.runActivity(named: "No attributes") { _ in
+            let openTag = try HTMLParser.parseOpenTag("<p>aaaa")
+            XCTAssertEqual(openTag.tag, "p")
+            XCTAssertEqual(openTag.attributes, [])
+        }
+
+        try XCTContext.runActivity(named: "Has an attribute") { _ in
+            let openTag = try HTMLParser.parseOpenTag("<p id=\"test\">")
+            XCTAssertEqual(openTag.tag, "p")
+            XCTAssertEqual(openTag.attributes, [.init(key: "id", value: "test")])
+        }
+
+        try XCTContext.runActivity(named: "Has attributes") { _ in
+            let openTag = try HTMLParser.parseOpenTag("<p id=\"test\" class=\"sample\">")
+            XCTAssertEqual(openTag.tag, "p")
+            XCTAssertEqual(openTag.attributes, [.init(key: "id", value: "test"), .init(key: "class", value: "sample")])
+        }
+
+        try XCTContext.runActivity(named: "Catch parse error") { _ in
+            XCTAssertThrowsError(try HTMLParser.parseOpenTag("<p id>"))
         }
     }
 }
