@@ -70,4 +70,8 @@ final class HTMLParserTests: XCTestCase {
             XCTAssertThrowsError(try HTMLParser.parseOpenTag("<p id>"))
         }
     }
+
+    func testParseCloseTag() throws {
+        XCTAssertEqual(try HTMLParser.parseCloseTag("</p>"), "p")
+    }
 }

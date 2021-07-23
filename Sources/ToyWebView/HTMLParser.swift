@@ -46,6 +46,22 @@ public struct HTMLParser {
         return openTagContent
     }
 
+    private static var closeTagParser: GenericParser<String, (), String> {
+        let closeTagName = StringParser.letter.many1.stringValue
+        let closeTagContent = GenericParser.lift2({
+            $1
+        },
+            parser1: StringParser.character("/"),
+            parser2: closeTagName
+        )
+        .between(
+            StringParser.character("<"),
+            StringParser.character(">")
+        )
+
+        return closeTagContent
+    }
+
     public static func parseAttribute(_ input: String) throws -> Attribute {
         return try attributeParser.run(sourceName: "", input: input)
     }
@@ -56,5 +72,9 @@ public struct HTMLParser {
 
     public static func parseOpenTag(_ input: String) throws -> (tag: String, attributes: [Attribute]) {
         return try openTagParser.run(sourceName: "", input: input)
+    }
+
+    public static func parseCloseTag(_ input: String) throws -> String {
+        return try closeTagParser.run(sourceName: "", input: input)
     }
 }
