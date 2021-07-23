@@ -7,19 +7,19 @@ final class NodeTests: XCTestCase {
 
         let testCases: [TestCase] = [
             (
-                node: Element(tagName: "p", attributes: [:], children: [Text("Hello World")]),
+                node: Element(tagName: "p", attributes: [], children: [Text("Hello World")]),
                 expected: "Hello World",
                 line: #line
             ),
             (
                 node:
-                Element(tagName: "div", attributes: [:], children: [
+                Element(tagName: "div", attributes: [], children: [
                     Text("Hello World"),
-                    Element(tagName: "p", attributes: [:], children: [
+                    Element(tagName: "p", attributes: [], children: [
                         Text("1")
                     ]),
-                    Element(tagName: "p", attributes: [:], children: []),
-                    Element(tagName: "p", attributes: [:], children: [
+                    Element(tagName: "p", attributes: [], children: []),
+                    Element(tagName: "p", attributes: [], children: [
                         Text("3")
                     ]),
                 ]),
