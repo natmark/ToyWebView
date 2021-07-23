@@ -19,7 +19,7 @@ final class HTMLParserTests: XCTestCase {
         ]
 
         for testCase in testCases {
-            XCTAssertEqual(HTMLParser.parseAttribute(testCase.token), testCase.expected, String(testCase.line))
+            XCTAssertEqual(try? HTMLParser.parseAttribute(testCase.token), testCase.expected, String(testCase.line))
         }
     }
 
@@ -43,7 +43,7 @@ final class HTMLParserTests: XCTestCase {
         ]
 
         for testCase in testCases {
-            XCTAssertEqual(HTMLParser.parseAttributes(testCase.token), testCase.expected, String(testCase.line))
+            XCTAssertEqual(try? HTMLParser.parseAttributes(testCase.token), testCase.expected, String(testCase.line))
         }
     }
 }
