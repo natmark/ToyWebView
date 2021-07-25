@@ -52,4 +52,49 @@ final class CSSParserTests: XCTestCase {
             XCTAssertEqual(try CSSParser.parseSimpleSelector(testCase.input), testCase.expected, String(testCase.line))
         }
     }
+
+    func testParseRule() throws {
+        typealias TestCase = (input: String, expected: Rule, line: Int)
+
+        let testCases: [TestCase] = [
+            (
+                input: "test [foo=bar] {}",
+                expected: .init(
+                    selectors: [
+                        .attributeSelector(tagName: "test", operator: .equal, attribute: "foo", value: "bar"),
+                    ],
+                    declarations: []
+                ),
+                line: #line
+            ),
+            (
+                input: "test [foo=bar], testtest[piyo~=guoo] {}",
+                expected: .init(
+                    selectors: [
+                        .attributeSelector(tagName: "test", operator: .equal, attribute: "foo", value: "bar"),
+                        .attributeSelector(tagName: "testtest", operator: .contain, attribute: "piyo", value: "guoo"),
+                    ],
+                    declarations: []
+                ),
+                line: #line
+            ),
+            (
+                input: "test [foo=bar] { aa: bb; cc: dd; }",
+                expected: .init(
+                    selectors: [
+                        .attributeSelector(tagName: "test", operator: .equal, attribute: "foo", value: "bar"),
+                    ],
+                    declarations: [
+                        .init(name: "aa", value: .keyword("bb")),
+                        .init(name: "cc", value: .keyword("dd")),
+                    ]
+                ),
+                line: #line
+            ),
+        ]
+
+        for testCase in testCases {
+            XCTAssertEqual(try CSSParser.parseRule(testCase.input), testCase.expected, String(testCase.line))
+        }
+    }
 }

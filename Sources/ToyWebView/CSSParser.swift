@@ -87,6 +87,17 @@ public struct CSSParser {
             .separatedBy(StringParser.character(",").skip(StringParser.spaces))
     }
 
+    private static var ruleParser: GenericParser<String, (), Rule> {
+        GenericParser.lift4({ selectors, _, declarations, _ in
+            .init(selectors: selectors, declarations: declarations)
+        },
+            parser1: selectorsParser.skip(StringParser.spaces),
+            parser2: StringParser.character("{").skip(StringParser.spaces),
+            parser3: declarationsParser.skip(StringParser.spaces),
+            parser4: StringParser.character("}")
+        )
+    }
+
     public static func parseDeclarations(_ input: String) throws -> [Declaration] {
         return try declarationsParser.run(sourceName: "", input: input)
     }
@@ -97,5 +108,9 @@ public struct CSSParser {
 
     public static func parseSimpleSelector(_ input: String) throws -> SimpleSelector {
         return try simpleSelectorParser.run(sourceName: "", input: input)
+    }
+
+    public static func parseRule(_ input: String) throws -> Rule {
+        return try ruleParser.run(sourceName: "", input: input)
     }
 }
