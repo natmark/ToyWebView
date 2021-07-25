@@ -9,16 +9,16 @@ public struct CSSParser {
     }
 
     private static var declarationsParser: GenericParser<String, (), [Declaration]> {
-        return declarationParser.skipWhitespaces()
-            .dividedBy(StringParser.character(";").skipWhitespaces())
+        return declarationParser.skip(StringParser.spaces)
+            .dividedBy(StringParser.character(";").skip(StringParser.spaces))
     }
 
     private static var declarationParser: GenericParser<String, (), Declaration> {
         return GenericParser.lift3({ keyword, _, value in
             Declaration(name: String(keyword), value: value)
         },
-            parser1: StringParser.letter.many.skipWhitespaces(),
-            parser2: StringParser.character(":").skipWhitespaces(),
+            parser1: StringParser.letter.many.skip(StringParser.spaces),
+            parser2: StringParser.character(":").skip(StringParser.spaces),
             parser3: cssValueParser
         )
     }
