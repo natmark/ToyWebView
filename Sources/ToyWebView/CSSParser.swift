@@ -98,6 +98,10 @@ public struct CSSParser {
         )
     }
 
+    private static var rulesParser: GenericParser<String, (), [Rule]> {
+        StringParser.spaces *> ruleParser.skip(StringParser.spaces).many
+    }
+
     public static func parseDeclarations(_ input: String) throws -> [Declaration] {
         return try declarationsParser.run(sourceName: "", input: input)
     }
@@ -112,5 +116,9 @@ public struct CSSParser {
 
     public static func parseRule(_ input: String) throws -> Rule {
         return try ruleParser.run(sourceName: "", input: input)
+    }
+
+    public static func parse(_ input: String) throws -> Stylesheet {
+        return try rulesParser.map { Stylesheet(rules: $0) }.run(sourceName: "", input: input)
     }
 }

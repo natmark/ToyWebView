@@ -97,4 +97,28 @@ final class CSSParserTests: XCTestCase {
             XCTAssertEqual(try CSSParser.parseRule(testCase.input), testCase.expected, String(testCase.line))
         }
     }
+
+    func testParse() throws {
+        XCTAssertEqual(
+            try CSSParser.parse("test [foo=bar] {}\ntest [foo=bar] { aa: bb; cc: dd; }"),
+            .init(rules: [
+                .init(
+                    selectors: [
+                        .attributeSelector(tagName: "test", operator: .equal, attribute: "foo", value: "bar"),
+                    ],
+                    declarations: []
+                ),
+                .init(
+                    selectors: [
+                        .attributeSelector(tagName: "test", operator: .equal, attribute: "foo", value: "bar"),
+                    ],
+                    declarations: [
+                        .init(name: "aa", value: .keyword("bb")),
+                        .init(name: "cc", value: .keyword("dd")),
+                    ]
+                ),
+            ])
+        )
+
+    }
 }
