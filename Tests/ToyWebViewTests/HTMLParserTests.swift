@@ -103,4 +103,25 @@ final class HTMLParserTests: XCTestCase {
             )
         }
     }
+
+    func testParseText() throws {
+        typealias TestCase = (input: String, expected: Text, line: Int)
+
+        let testCases: [TestCase] = [
+            (
+                input: "Hello World",
+                expected: .init("Hello World"),
+                line: #line
+            ),
+            (
+                input: "Hello World<",
+                expected: .init("Hello World"),
+                line: #line
+            ),
+        ]
+
+        for testCase in testCases {
+            XCTAssertEqual(try HTMLParser.parseText(testCase.input), testCase.expected, String(testCase.line))
+        }
+    }
 }

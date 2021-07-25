@@ -62,7 +62,7 @@ public struct HTMLParser {
         return closeTagContent
     }
 
-    private static var textParser: GenericParser<String, (), Node> {
+    private static var textParser: GenericParser<String, (), Text> {
         return StringParser.satisfy { c in c != "<"}.many1.stringValue.map { text in Text(text) }
     }
 
@@ -76,7 +76,7 @@ public struct HTMLParser {
                 }
             },
                 parser1: openTagParser,
-                parser2: GenericParser.choice([textParser.attempt, node.attempt]).many.attempt,
+                parser2: GenericParser.choice([textParser.attempt.map { $0 as Node }, node.attempt]).many.attempt,
                 parser3: closeTagParser
             ).flatMap { result -> GenericParser<String, (), Node> in
                 switch result {
@@ -107,5 +107,9 @@ public struct HTMLParser {
 
     public static func parseElement(_ input: String) throws -> Node {
         return try elementParser.run(sourceName: "", input: input)
+    }
+
+    public static func parseText(_ input: String) throws -> Text {
+        return try textParser.run(sourceName: "", input: input)
     }
 }
