@@ -74,4 +74,33 @@ final class HTMLParserTests: XCTestCase {
     func testParseCloseTag() throws {
         XCTAssertEqual(try HTMLParser.parseCloseTag("</p>"), "p")
     }
+
+    func testParseElement() throws {
+        try XCTContext.runActivity(named: "No content tag") { _ in
+            XCTAssertEqual(
+                try HTMLParser.parseElement("<p></p>") as! Element,
+                Element(tagName: "p", attributes: [], children: [])
+            )
+        }
+
+        try XCTContext.runActivity(named: "Tag with content") { _ in
+            XCTAssertEqual(
+                try HTMLParser.parseElement("<p>Hello World</p>") as! Element,
+                Element(tagName: "p", attributes: [], children: [Text("Hello World")])
+            )
+        }
+
+        try XCTContext.runActivity(named: "Nested tag with content") { _ in
+            XCTAssertEqual(
+                try HTMLParser.parseElement("<div><p>Hello World</p></div>") as! Element,
+                Element(tagName: "div", attributes: [], children: [Element(tagName: "p", attributes: [], children: [Text("Hello World")])])
+            )
+        }
+
+        try XCTContext.runActivity(named: "Catch parse error") { _ in
+            XCTAssertThrowsError(
+                try HTMLParser.parseElement("<p>Hello World</div>")
+            )
+        }
+    }
 }

@@ -31,4 +31,3 @@ extension Node {
         fatalError()
     }
 }
-
