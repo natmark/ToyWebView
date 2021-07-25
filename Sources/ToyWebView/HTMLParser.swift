@@ -2,13 +2,6 @@ import Foundation
 import SwiftParsec
 
 public struct HTMLParser {
-    public struct ParseError: Error, CustomStringConvertible {
-        public var description: String
-        init(description: String) {
-            self.description = description
-        }
-    }
-
     private static var attributeParser: GenericParser<String, (), Attribute> {
         let attributeName = StringParser.letter.many1.stringValue
         let attributeInnerValue = StringParser.satisfy { c in c != "\""}.many1
