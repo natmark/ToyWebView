@@ -2,7 +2,7 @@ import XCTest
 @testable import ToyWebView
 
 final class CSSParserTests: XCTestCase {
-    func testDeclarations() throws {
+    func testParseDeclarations() throws {
         XCTAssertEqual(
             try CSSParser.parseDeclarations("foo: bar; piyo: piyopiyo;"),
             [
@@ -12,7 +12,7 @@ final class CSSParserTests: XCTestCase {
         )
     }
 
-    func testSelectors() throws {
+    func testParseSelectors() throws {
         XCTAssertEqual(
             try CSSParser.parseSelectors("test [foo=bar], a"),
             [
@@ -22,7 +22,7 @@ final class CSSParserTests: XCTestCase {
         )
     }
 
-    func testSimpleSelector() throws {
+    func testParseSimpleSelector() throws {
         typealias TestCase = (input: String, expected: SimpleSelector, line: Int)
 
         let testCases: [TestCase] = [
