@@ -32,4 +32,12 @@ extension Node {
     }
 }
 
-
+public func == (lhs: Node, rhs: Node) -> Bool {
+    if let lhs = lhs as? Element, let rhs = rhs as? Element {
+        return lhs == rhs
+    } else if let lhs = lhs as? Text, let rhs = rhs as? Text {
+        return lhs == rhs
+    } else {
+        return false
+    }
+}

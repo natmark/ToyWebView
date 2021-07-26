@@ -8,15 +8,7 @@ public struct Element: Node {
 
 extension Element: Equatable {
     public static func == (lhs: Element, rhs: Element) -> Bool {
-        let isChildrenEqual = zip(lhs.children, rhs.children).allSatisfy { lhsChild, rhsChild in
-            if let lhsChild = lhsChild as? Element, let rhsChild = rhsChild as? Element {
-                return lhsChild == rhsChild
-            } else if let lhsChild = lhsChild as? Text, let rhsChild = rhsChild as? Text {
-                return lhsChild == rhsChild
-            } else {
-                return false
-            }
-        }
+        let isChildrenEqual = zip(lhs.children, rhs.children).allSatisfy { $0.0 == $0.1 }
 
         return isChildrenEqual &&
             lhs.tagName == rhs.tagName &&
