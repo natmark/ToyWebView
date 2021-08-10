@@ -14,37 +14,27 @@ public struct ToyWebView: View {
 
     public var body: some View {
         if let layout = layoutBuilder.layout {
-            render(layout: layout)
+            ForEach(Array(render(layout: layout).enumerated()), id: \.offset) { _, anyView in
+                AnyView(anyView)
+            }
         }
     }
 
-    @ViewBuilder
-    func render(layout: LayoutBox) -> some View {
-        // SwiftUIで再帰のコードを描けなさそうなので困った
+    func render(layout: LayoutBox) -> [AnyView] {
+        switch layout.boxType {
+        case .blockBox(let props), .inlineBox(let props):
+                    if let element = props.node as? Element {
+                        return [AnyView(SwiftUI.Text(element.tagName))] + layout.children.map { render(layout: $0) }.flatMap { $0 }
+                    } else if let text = props.node as? Text {
+                        return [AnyView(SwiftUI.Text(text.data))]
+                    } else {
+                        fatalError()
+                    }
+        case .anonymousBox:
+            return layout.children.map { render(layout: $0) }.flatMap { $0 }
+        }
     }
 }
-//
-//enum ElementContainer {
-//    case vstack(containers: [ElementContainer])
-//    case hstack(containers: [ElementContainer])
-//    case text(String)
-//
-//    init(layoutBox: LayoutBox) {
-//        switch layoutBox.boxType {
-//        case .blockBox(let props), .inlineBox(let props):
-//            if let element = props.node as? Element {
-//                self = .vstack(containers: [.text(element.tagName)] + layoutBox.children.map { ElementContainer(layoutBox: $0) })
-//            } else if let text = props.node as? Text {
-//                let trimmedText = text.data.trimmingCharacters(in: .whitespacesAndNewlines)
-//                self = .text(trimmedText)
-//            } else {
-//                fatalError()
-//            }
-//        case .anonymousBox:
-//            self = .hstack(containers: layoutBox.children.map { ElementContainer(layoutBox: $0) })
-//        }
-//    }
-//}
 
 class LayoutBuilder: ObservableObject {
     @Published var layout: LayoutBox? = nil
