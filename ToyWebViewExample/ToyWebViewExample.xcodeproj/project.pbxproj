@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,7 @@
 		AC1B941626C2CF320057A63F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1B941526C2CF320057A63F /* ContentView.swift */; };
 		AC1B941826C2CF340057A63F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC1B941726C2CF340057A63F /* Assets.xcassets */; };
 		AC1B941B26C2CF340057A63F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC1B941A26C2CF340057A63F /* Preview Assets.xcassets */; };
+		AC1B944326C2D25D0057A63F /* ToyWebView in Frameworks */ = {isa = PBXBuildFile; productRef = AC1B944226C2D25D0057A63F /* ToyWebView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC1B944326C2D25D0057A63F /* ToyWebView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +87,9 @@
 			dependencies = (
 			);
 			name = ToyWebViewExample;
+			packageProductDependencies = (
+				AC1B944226C2D25D0057A63F /* ToyWebView */,
+			);
 			productName = ToyWebViewExample;
 			productReference = AC1B941026C2CF320057A63F /* ToyWebViewExample.app */;
 			productType = "com.apple.product-type.application";
@@ -112,6 +117,9 @@
 				Base,
 			);
 			mainGroup = AC1B940726C2CF320057A63F;
+			packageReferences = (
+				AC1B944126C2D25D0057A63F /* XCRemoteSwiftPackageReference "ToyWebView" */,
+			);
 			productRefGroup = AC1B941126C2CF320057A63F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -328,6 +336,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AC1B944126C2D25D0057A63F /* XCRemoteSwiftPackageReference "ToyWebView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "../";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AC1B944226C2D25D0057A63F /* ToyWebView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC1B944126C2D25D0057A63F /* XCRemoteSwiftPackageReference "ToyWebView" */;
+			productName = ToyWebView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AC1B940826C2CF320057A63F /* Project object */;
 }
