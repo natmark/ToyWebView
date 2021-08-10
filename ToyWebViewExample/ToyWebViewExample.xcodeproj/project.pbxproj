@@ -118,7 +118,7 @@
 			);
 			mainGroup = AC1B940726C2CF320057A63F;
 			packageReferences = (
-				AC1B944126C2D25D0057A63F /* XCRemoteSwiftPackageReference "ToyWebView" */,
+				AC1B944126C2D25D0057A63F /* XCRemoteSwiftPackageReference "." */,
 			);
 			productRefGroup = AC1B941126C2CF320057A63F /* Products */;
 			projectDirPath = "";
@@ -280,7 +280,7 @@
 				DEVELOPMENT_TEAM = DEQGLB9PU4;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ToyWebViewExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +302,7 @@
 				DEVELOPMENT_TEAM = DEQGLB9PU4;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ToyWebViewExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -338,9 +338,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		AC1B944126C2D25D0057A63F /* XCRemoteSwiftPackageReference "ToyWebView" */ = {
+		AC1B944126C2D25D0057A63F /* XCRemoteSwiftPackageReference "." */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "../";
+			repositoryURL = ../;
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.0.0;
@@ -351,7 +351,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		AC1B944226C2D25D0057A63F /* ToyWebView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AC1B944126C2D25D0057A63F /* XCRemoteSwiftPackageReference "ToyWebView" */;
+			package = AC1B944126C2D25D0057A63F /* XCRemoteSwiftPackageReference "." */;
 			productName = ToyWebView;
 		};
 /* End XCSwiftPackageProductDependency section */
