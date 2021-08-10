@@ -11,26 +11,7 @@
 		AC1B941626C2CF320057A63F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1B941526C2CF320057A63F /* ContentView.swift */; };
 		AC1B941826C2CF340057A63F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC1B941726C2CF340057A63F /* Assets.xcassets */; };
 		AC1B941B26C2CF340057A63F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC1B941A26C2CF340057A63F /* Preview Assets.xcassets */; };
-		AC1B942626C2CF340057A63F /* ToyWebViewExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1B942526C2CF340057A63F /* ToyWebViewExampleTests.swift */; };
-		AC1B943126C2CF340057A63F /* ToyWebViewExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1B943026C2CF340057A63F /* ToyWebViewExampleUITests.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		AC1B942226C2CF340057A63F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AC1B940826C2CF320057A63F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AC1B940F26C2CF320057A63F;
-			remoteInfo = ToyWebViewExample;
-		};
-		AC1B942D26C2CF340057A63F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AC1B940826C2CF320057A63F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AC1B940F26C2CF320057A63F;
-			remoteInfo = ToyWebViewExample;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		AC1B941026C2CF320057A63F /* ToyWebViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToyWebViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,30 +20,10 @@
 		AC1B941726C2CF340057A63F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC1B941A26C2CF340057A63F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AC1B941C26C2CF340057A63F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AC1B942126C2CF340057A63F /* ToyWebViewExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToyWebViewExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AC1B942526C2CF340057A63F /* ToyWebViewExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToyWebViewExampleTests.swift; sourceTree = "<group>"; };
-		AC1B942726C2CF340057A63F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AC1B942C26C2CF340057A63F /* ToyWebViewExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToyWebViewExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AC1B943026C2CF340057A63F /* ToyWebViewExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToyWebViewExampleUITests.swift; sourceTree = "<group>"; };
-		AC1B943226C2CF340057A63F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		AC1B940D26C2CF320057A63F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AC1B941E26C2CF340057A63F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AC1B942926C2CF340057A63F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -76,8 +37,6 @@
 			isa = PBXGroup;
 			children = (
 				AC1B941226C2CF320057A63F /* ToyWebViewExample */,
-				AC1B942426C2CF340057A63F /* ToyWebViewExampleTests */,
-				AC1B942F26C2CF340057A63F /* ToyWebViewExampleUITests */,
 				AC1B941126C2CF320057A63F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,8 +45,6 @@
 			isa = PBXGroup;
 			children = (
 				AC1B941026C2CF320057A63F /* ToyWebViewExample.app */,
-				AC1B942126C2CF340057A63F /* ToyWebViewExampleTests.xctest */,
-				AC1B942C26C2CF340057A63F /* ToyWebViewExampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,24 +69,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		AC1B942426C2CF340057A63F /* ToyWebViewExampleTests */ = {
-			isa = PBXGroup;
-			children = (
-				AC1B942526C2CF340057A63F /* ToyWebViewExampleTests.swift */,
-				AC1B942726C2CF340057A63F /* Info.plist */,
-			);
-			path = ToyWebViewExampleTests;
-			sourceTree = "<group>";
-		};
-		AC1B942F26C2CF340057A63F /* ToyWebViewExampleUITests */ = {
-			isa = PBXGroup;
-			children = (
-				AC1B943026C2CF340057A63F /* ToyWebViewExampleUITests.swift */,
-				AC1B943226C2CF340057A63F /* Info.plist */,
-			);
-			path = ToyWebViewExampleUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,42 +89,6 @@
 			productReference = AC1B941026C2CF320057A63F /* ToyWebViewExample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AC1B942026C2CF340057A63F /* ToyWebViewExampleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AC1B943826C2CF340057A63F /* Build configuration list for PBXNativeTarget "ToyWebViewExampleTests" */;
-			buildPhases = (
-				AC1B941D26C2CF340057A63F /* Sources */,
-				AC1B941E26C2CF340057A63F /* Frameworks */,
-				AC1B941F26C2CF340057A63F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				AC1B942326C2CF340057A63F /* PBXTargetDependency */,
-			);
-			name = ToyWebViewExampleTests;
-			productName = ToyWebViewExampleTests;
-			productReference = AC1B942126C2CF340057A63F /* ToyWebViewExampleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		AC1B942B26C2CF340057A63F /* ToyWebViewExampleUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AC1B943B26C2CF340057A63F /* Build configuration list for PBXNativeTarget "ToyWebViewExampleUITests" */;
-			buildPhases = (
-				AC1B942826C2CF340057A63F /* Sources */,
-				AC1B942926C2CF340057A63F /* Frameworks */,
-				AC1B942A26C2CF340057A63F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				AC1B942E26C2CF340057A63F /* PBXTargetDependency */,
-			);
-			name = ToyWebViewExampleUITests;
-			productName = ToyWebViewExampleUITests;
-			productReference = AC1B942C26C2CF340057A63F /* ToyWebViewExampleUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -197,14 +100,6 @@
 				TargetAttributes = {
 					AC1B940F26C2CF320057A63F = {
 						CreatedOnToolsVersion = 12.5;
-					};
-					AC1B942026C2CF340057A63F = {
-						CreatedOnToolsVersion = 12.5;
-						TestTargetID = AC1B940F26C2CF320057A63F;
-					};
-					AC1B942B26C2CF340057A63F = {
-						CreatedOnToolsVersion = 12.5;
-						TestTargetID = AC1B940F26C2CF320057A63F;
 					};
 				};
 			};
@@ -222,8 +117,6 @@
 			projectRoot = "";
 			targets = (
 				AC1B940F26C2CF320057A63F /* ToyWebViewExample */,
-				AC1B942026C2CF340057A63F /* ToyWebViewExampleTests */,
-				AC1B942B26C2CF340057A63F /* ToyWebViewExampleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -235,20 +128,6 @@
 			files = (
 				AC1B941B26C2CF340057A63F /* Preview Assets.xcassets in Resources */,
 				AC1B941826C2CF340057A63F /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AC1B941F26C2CF340057A63F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AC1B942A26C2CF340057A63F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,36 +143,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AC1B941D26C2CF340057A63F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AC1B942626C2CF340057A63F /* ToyWebViewExampleTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AC1B942826C2CF340057A63F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AC1B943126C2CF340057A63F /* ToyWebViewExampleUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		AC1B942326C2CF340057A63F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AC1B940F26C2CF320057A63F /* ToyWebViewExample */;
-			targetProxy = AC1B942226C2CF340057A63F /* PBXContainerItemProxy */;
-		};
-		AC1B942E26C2CF340057A63F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AC1B940F26C2CF320057A63F /* ToyWebViewExample */;
-			targetProxy = AC1B942D26C2CF340057A63F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		AC1B943326C2CF340057A63F /* Debug */ = {
@@ -456,90 +306,6 @@
 			};
 			name = Release;
 		};
-		AC1B943926C2CF340057A63F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DEQGLB9PU4;
-				INFOPLIST_FILE = ToyWebViewExampleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.natmark.ToyWebViewExampleTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ToyWebViewExample.app/ToyWebViewExample";
-			};
-			name = Debug;
-		};
-		AC1B943A26C2CF340057A63F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DEQGLB9PU4;
-				INFOPLIST_FILE = ToyWebViewExampleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.natmark.ToyWebViewExampleTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ToyWebViewExample.app/ToyWebViewExample";
-			};
-			name = Release;
-		};
-		AC1B943C26C2CF340057A63F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DEQGLB9PU4;
-				INFOPLIST_FILE = ToyWebViewExampleUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.natmark.ToyWebViewExampleUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ToyWebViewExample;
-			};
-			name = Debug;
-		};
-		AC1B943D26C2CF340057A63F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DEQGLB9PU4;
-				INFOPLIST_FILE = ToyWebViewExampleUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.natmark.ToyWebViewExampleUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ToyWebViewExample;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -557,24 +323,6 @@
 			buildConfigurations = (
 				AC1B943626C2CF340057A63F /* Debug */,
 				AC1B943726C2CF340057A63F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		AC1B943826C2CF340057A63F /* Build configuration list for PBXNativeTarget "ToyWebViewExampleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AC1B943926C2CF340057A63F /* Debug */,
-				AC1B943A26C2CF340057A63F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		AC1B943B26C2CF340057A63F /* Build configuration list for PBXNativeTarget "ToyWebViewExampleUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AC1B943C26C2CF340057A63F /* Debug */,
-				AC1B943D26C2CF340057A63F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
