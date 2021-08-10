@@ -4,6 +4,19 @@ public struct StyledNode {
     public var children: [StyledNode]
     public var properties: [String: CSSValue]
     public var node: Node
+    public var display: Display {
+        if case let .keyword(keyword) = properties["display"] {
+            if keyword == "block" {
+                return .block
+            } else if keyword == "none" {
+                return .none
+            } else {
+                return .inline
+            }
+        } else {
+            return .inline
+        }
+    }
 
     public init(children: [StyledNode], properties: [String: CSSValue], node: Node) {
         self.children = children
