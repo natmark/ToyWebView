@@ -1,16 +1,9 @@
-//
-//  ContentView.swift
-//  ToyWebViewExample
-//
-//  Created by Atsuya Sato on 2021/08/11.
-//
-
 import SwiftUI
+import ToyWebView
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        ToyWebView()
     }
 }
 
