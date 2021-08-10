@@ -1,8 +1,8 @@
 import Foundation
 
-public struct LayoutBox {
-    public var boxType: BoxType
-    public var children: [LayoutBox]
+struct LayoutBox {
+    var boxType: BoxType
+    var children: [LayoutBox]
 
     init(boxType: BoxType, children: [LayoutBox]) {
         self.boxType = boxType
@@ -55,13 +55,13 @@ public struct LayoutBox {
     }
 }
 
-public enum BoxType {
+enum BoxType {
     case blockBox(BoxProps)
     case inlineBox(BoxProps)
     case anonymousBox
 }
 
-public struct BoxProps {
-    public var node: Node
-    public var properties: [String: CSSValue]
+struct BoxProps {
+    var node: Node
+    var properties: [String: CSSValue]
 }

@@ -2,7 +2,7 @@ import Foundation
 import SwiftUI
 
 public struct ToyWebView: View {
-    var body: some View {
-        fatalError()
+    public var body: some View {
+        SwiftUI.Text("Hello")
     }
 }

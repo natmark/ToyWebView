@@ -1,5 +1,5 @@
 import Foundation
 
-public enum CSSValue: Equatable {
+enum CSSValue: Equatable {
     case keyword(String)
 }

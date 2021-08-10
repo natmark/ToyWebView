@@ -1,6 +1,6 @@
 import Foundation
 
-public protocol Node {
+protocol Node {
     var children: [Node] { get }
     var innerText: String { get }
     var innerHTML: String { get }
@@ -9,7 +9,7 @@ public protocol Node {
 }
 
 extension Node {
-    public var innerText: String {
+    var innerText: String {
         children.map { node in
             if let text = node as? Text {
                 return text.data
@@ -19,20 +19,20 @@ extension Node {
         }.joined()
     }
 
-    public var innerHTML: String {
+    var innerHTML: String {
         fatalError()
     }
 
-    public mutating func setInnerHTML(html: String) throws {
+    mutating func setInnerHTML(html: String) throws {
         fatalError()
     }
 
-    public var description: String {
+    var description: String {
         fatalError()
     }
 }
 
-public func == (lhs: Node, rhs: Node) -> Bool {
+func == (lhs: Node, rhs: Node) -> Bool {
     if let lhs = lhs as? Element, let rhs = rhs as? Element {
         return lhs == rhs
     } else if let lhs = lhs as? Text, let rhs = rhs as? Text {

@@ -1,7 +1,7 @@
 import Foundation
 import SwiftParsec
 
-public struct HTMLParser {
+struct HTMLParser {
     private static var attributeParser: GenericParser<String, (), Attribute> {
         let attributeName = StringParser.letter.many1.stringValue
         let attributeInnerValue = StringParser.satisfy { c in c != "\""}.many1
@@ -89,27 +89,27 @@ public struct HTMLParser {
         }
     }
 
-    public static func parseAttribute(_ input: String) throws -> Attribute {
+    static func parseAttribute(_ input: String) throws -> Attribute {
         return try attributeParser.run(sourceName: "", input: input)
     }
 
-    public static func parseAttributes(_ input: String) throws -> [Attribute] {
+    static func parseAttributes(_ input: String) throws -> [Attribute] {
         return try attributesParser.run(sourceName: "", input: input)
     }
 
-    public static func parseOpenTag(_ input: String) throws -> (tag: String, attributes: [Attribute]) {
+    static func parseOpenTag(_ input: String) throws -> (tag: String, attributes: [Attribute]) {
         return try openTagParser.run(sourceName: "", input: input)
     }
 
-    public static func parseCloseTag(_ input: String) throws -> String {
+    static func parseCloseTag(_ input: String) throws -> String {
         return try closeTagParser.run(sourceName: "", input: input)
     }
 
-    public static func parseElement(_ input: String) throws -> Node {
+    static func parseElement(_ input: String) throws -> Node {
         return try elementParser.run(sourceName: "", input: input)
     }
 
-    public static func parseText(_ input: String) throws -> Text {
+    static func parseText(_ input: String) throws -> Text {
         return try textParser.run(sourceName: "", input: input)
     }
 }

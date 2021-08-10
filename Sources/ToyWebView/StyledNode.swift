@@ -1,10 +1,10 @@
 import Foundation
 
-public struct StyledNode {
-    public var children: [StyledNode]
-    public var properties: [String: CSSValue]
-    public var node: Node
-    public var display: Display {
+struct StyledNode {
+    var children: [StyledNode]
+    var properties: [String: CSSValue]
+    var node: Node
+    var display: Display {
         if case let .keyword(keyword) = properties["display"] {
             if keyword == "block" {
                 return .block
@@ -18,13 +18,13 @@ public struct StyledNode {
         }
     }
 
-    public init(children: [StyledNode], properties: [String: CSSValue], node: Node) {
+    init(children: [StyledNode], properties: [String: CSSValue], node: Node) {
         self.children = children
         self.properties = properties
         self.node = node
     }
 
-    public init?(node: Node, stylesheet: Stylesheet) {
+    init?(node: Node, stylesheet: Stylesheet) {
         var properties: [String: CSSValue] = [:]
         let matchedRules = stylesheet.rules.filter { rule in rule.matches(node: node) }
 
@@ -52,7 +52,7 @@ public struct StyledNode {
 }
 
 extension StyledNode: Equatable {
-    public static func == (lhs: StyledNode, rhs: StyledNode) -> Bool {
+    static func == (lhs: StyledNode, rhs: StyledNode) -> Bool {
         lhs.properties == rhs.properties &&
             lhs.children == rhs.children &&
             lhs.node == rhs.node

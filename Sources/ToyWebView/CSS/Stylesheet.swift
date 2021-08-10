@@ -1,5 +1,5 @@
 import Foundation
 
-public struct Stylesheet: Equatable {
-    public var rules: [Rule]
+struct Stylesheet: Equatable {
+    var rules: [Rule]
 }

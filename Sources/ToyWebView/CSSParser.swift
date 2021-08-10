@@ -1,7 +1,7 @@
 import Foundation
 import SwiftParsec
 
-public struct CSSParser {
+struct CSSParser {
     private static var cssValueParser: GenericParser<String, (), CSSValue> {
         return StringParser.letter.many1.stringValue.map { .keyword($0) }
     }
@@ -102,23 +102,23 @@ public struct CSSParser {
         StringParser.spaces *> ruleParser.skip(StringParser.spaces).many
     }
 
-    public static func parseDeclarations(_ input: String) throws -> [Declaration] {
+    static func parseDeclarations(_ input: String) throws -> [Declaration] {
         return try declarationsParser.run(sourceName: "", input: input)
     }
 
-    public static func parseSelectors(_ input: String) throws -> [Selector] {
+    static func parseSelectors(_ input: String) throws -> [Selector] {
         return try selectorsParser.run(sourceName: "", input: input)
     }
 
-    public static func parseSimpleSelector(_ input: String) throws -> SimpleSelector {
+    static func parseSimpleSelector(_ input: String) throws -> SimpleSelector {
         return try simpleSelectorParser.run(sourceName: "", input: input)
     }
 
-    public static func parseRule(_ input: String) throws -> Rule {
+    static func parseRule(_ input: String) throws -> Rule {
         return try ruleParser.run(sourceName: "", input: input)
     }
 
-    public static func parse(_ input: String) throws -> Stylesheet {
+    static func parse(_ input: String) throws -> Stylesheet {
         return try rulesParser.map { Stylesheet(rules: $0) }.run(sourceName: "", input: input)
     }
 }

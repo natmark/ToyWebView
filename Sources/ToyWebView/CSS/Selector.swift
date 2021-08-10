@@ -1,14 +1,14 @@
 import Foundation
 
-public typealias Selector = SimpleSelector
+typealias Selector = SimpleSelector
 
-public enum SimpleSelector: Equatable {
+enum SimpleSelector: Equatable {
     case universalSelector
     case typeSelector(tagName: String)
     case attributeSelector(tagName: String, operator: AttributeSelectorOperator, attribute: String, value: String)
     case classSelector(className: String)
 
-    public func matches(node: Node) -> Bool {
+    func matches(node: Node) -> Bool {
         switch self {
         case .universalSelector:
             return true
@@ -45,7 +45,7 @@ public enum SimpleSelector: Equatable {
     }
 }
 
-public enum AttributeSelectorOperator {
+enum AttributeSelectorOperator {
     case equal
     case contain
 }

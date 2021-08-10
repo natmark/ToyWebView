@@ -1,6 +1,6 @@
 import Foundation
 
-public enum Display {
+enum Display {
     case inline
     case block
     case none
